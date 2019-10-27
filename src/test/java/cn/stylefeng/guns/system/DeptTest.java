@@ -1,6 +1,8 @@
 package cn.stylefeng.guns.system;
 
 import cn.stylefeng.guns.base.BaseJunit;
+import cn.stylefeng.guns.modular.project.entity.TbProject;
+import cn.stylefeng.guns.modular.project.mapper.TbProjectMapper;
 import cn.stylefeng.guns.modular.system.entity.Dept;
 import cn.stylefeng.guns.modular.system.mapper.DeptMapper;
 import org.junit.Test;
@@ -23,6 +25,9 @@ public class DeptTest extends BaseJunit {
     @Resource
     DeptMapper deptMapper;
 
+    @Resource
+    TbProjectMapper projectMapper;
+
     @Test
     public void addDeptTest() {
         Dept dept = new Dept();
@@ -40,7 +45,11 @@ public class DeptTest extends BaseJunit {
     public void updateTest() {
         Dept dept = this.deptMapper.selectById(24);
         dept.setDescription("哈哈");
-        deptMapper.updateById(dept);
+        System.out.println(dept);
+
+        List<Dept> depts = deptMapper.selectList(null);
+        System.out.println(depts);
+        // deptMapper.updateById(dept);
     }
 
     @Test
@@ -48,5 +57,11 @@ public class DeptTest extends BaseJunit {
         Dept dept = this.deptMapper.selectById(24);
         Integer integer = deptMapper.deleteById(dept);
         assertTrue(integer > 0);
+    }
+
+    @Test
+    public void selectProjectList(){
+        List<TbProject> tbProjects = projectMapper.selectList(null);
+        System.out.println(tbProjects);
     }
 }

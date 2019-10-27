@@ -1,7 +1,7 @@
 package cn.stylefeng.guns.modular.project.mapper;
 
 import cn.stylefeng.guns.modular.project.entity.TbProject;
-import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  * @author 项目表
  * @since 2019-10-27
  */
-public interface TbProjectMapper extends BaseMapper<TbProject> {
+public interface TbProjectMapper extends BaseMapper<TbProject>{
 
 }

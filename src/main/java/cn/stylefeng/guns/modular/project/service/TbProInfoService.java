@@ -1,10 +1,11 @@
-package cn.stylefeng.guns.modular.project.service.impl;
+package cn.stylefeng.guns.modular.project.service;
 
 import cn.stylefeng.guns.modular.project.entity.TbProInfo;
 import cn.stylefeng.guns.modular.project.mapper.TbProInfoMapper;
-import cn.stylefeng.guns.modular.project.service.ITbProInfoService;
-import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 /**
  * <p>
@@ -15,6 +16,8 @@ import org.springframework.stereotype.Service;
  * @since 2019-10-27
  */
 @Service
-public class TbProInfoServiceImpl extends ServiceImpl<TbProInfoMapper, TbProInfo> implements ITbProInfoService {
+public class TbProInfoService extends ServiceImpl<TbProInfoMapper, TbProInfo> {
 
+    @Resource
+    private TbProInfoMapper proInfoMapper;
 }

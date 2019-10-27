@@ -1,4 +1,4 @@
-@layout("/common/_container.html",{js:["/assets/modular/system/log/log.js"]}){
+@layout("/common/_container.html",{js:["/assets/modular/project/project/project.js"]}){
 
 <div class="layui-body-header">
     <span class="layui-body-header-title">项目管理</span>
@@ -12,37 +12,23 @@
                     <div class="layui-form toolbar">
                         <div class="layui-form-item">
                             <div class="layui-inline">
-                                <input id="beginTime" class="layui-input" type="text" placeholder="开始时间"/>
-                            </div>
-                            <div class="layui-inline">
-                                <input id="endTime" class="layui-input" type="text" placeholder="结束时间"/>
-                            </div>
-                            <div class="layui-inline">
-                                <input id="logName" class="layui-input" type="text" placeholder="日志名称"/>
-                            </div>
-                            <div class="layui-inline">
-                                <select id="logType">
-                                    <option value="">类型</option>
-                                    <option value="0">全部</option>
-                                    <option value="1">业务日志</option>
-                                    <option value="2">异常日志</option>
-                                </select>
+                                <input id="projectName" class="layui-input" type="text" placeholder="项目名称"/>
                             </div>
                             <div class="layui-inline">
                                 <button id="btnSearch" class="layui-btn icon-btn"><i class="layui-icon">&#xe615;</i>搜索</button>
-                                @if(shiro.hasPermission("/log/delLog")){
-                                <button id="btnClean" class="layui-btn icon-btn layui-btn-danger"><i class="layui-icon">&#xe67d;</i>清空日志</button>
-                                @}
+                                <button id="btnAdd" class="layui-btn icon-btn"><i class="layui-icon">&#xe654;</i>添加</button>
                             </div>
                         </div>
                     </div>
-                    <table class="layui-table" id="logTable" lay-filter="logTable"></table>
+                    <table class="layui-table" id="projectTable" lay-filter="projectTable"></table>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <script type="text/html" id="tableBar">
+    <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="update">编辑</a>
     <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看详情</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="delete">删除</a>
 </script>
 @}

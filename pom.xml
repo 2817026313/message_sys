@@ -11,11 +11,11 @@
     </parent>
 
     <groupId>cn.stylefeng</groupId>
-    <artifactId>guns</artifactId>
+    <artifactId>message_sys</artifactId>
     <version>1.0.0</version>
 
     <name>guns-admin</name>
-    <description>guns 的spring boot版本</description>
+    <description></description>
 
     <packaging>jar</packaging>
 
@@ -168,6 +168,23 @@
             <artifactId>spring-boot-starter-quartz</artifactId>
         </dependency>
 
+        <!--代码生成-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity-engine-core</artifactId>
+            <version>2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-generate</artifactId>
+            <version>2.3</version>
+        </dependency>
+
         <!--需要分布式session的话需要放开注释-->
         <!--<dependency>-->
         <!--<groupId>org.springframework.session</groupId>-->
@@ -213,30 +230,6 @@
                         <delimiter>@</delimiter>
                     </delimiters>
                     <useDefaultDelimiters>false</useDefaultDelimiters>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>io.fabric8</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <version>0.26.1</version>
-                <configuration>
-                    <dockerHost>tcp://demo.stylefeng.cn:2376</dockerHost>
-                    <certPath>_dockerCerts</certPath>
-                    <images>
-                        <image>
-                            <alias>service</alias>
-                            <name>stylefeng/${project.artifactId}:latest</name>
-                            <build>
-                                <from>java:8</from>
-                                <assembly>
-                                    <descriptor>docker-assembly.xml</descriptor>
-                                </assembly>
-                                <cmd>
-                                    <shell>java -jar /maven/${project.artifactId}.jar</shell>
-                                </cmd>
-                            </build>
-                        </image>
-                    </images>
                 </configuration>
             </plugin>
         </plugins>
